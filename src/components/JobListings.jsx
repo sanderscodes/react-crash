@@ -4,13 +4,14 @@ import Spinner from './Spinner';
 
 
 
+// eslint-disable-next-line react/prop-types
 const JobListings = ({ isHome = false }) => {
 const [jobs, setJobs] =  useState([]);
 const [loading, setLoading] = useState(true);
 
 useEffect(() => {
 const fetchJobs = async () => {
-  const apiUrl = isHome ? 'http://localhost:8000/jobs?_limit=3' : 'http://localhost:8000/jobs';
+  const apiUrl = isHome ? '/api/jobs?_limit=3' : '/api/jobs';
   try {
     const res = await fetch(apiUrl);
     const data = await res.json();
@@ -23,6 +24,7 @@ console.log('Error fetching data', error);
 
 }
 fetchJobs();
+ // eslint-disable-next-line react-hooks/exhaustive-deps
  }, []);
   return (
     <section className="bg-blue-50 px-4 py-10">
