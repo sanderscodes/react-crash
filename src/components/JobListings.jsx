@@ -22,7 +22,7 @@ console.log('Error fetching data', error);
     setLoading(false);
   }
 
-}
+};
 fetchJobs();
  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, []);

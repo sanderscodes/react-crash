@@ -4,7 +4,8 @@ const override = {
     margin: '100px auto'
 }
 
-const Spinner = ({loading}) => {
+// eslint-disable-next-line react/prop-types
+const Spinner = ({ loading }) => {
   return (
     <ClipLoader
     color='#4338ca'
@@ -12,7 +13,7 @@ const Spinner = ({loading}) => {
     cssOverride={override}
     size={150}
      />
-  )
-}
+  );
+};
 
 export default Spinner
