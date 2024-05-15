@@ -3,13 +3,13 @@ import MainLayout from './layouts/MainLayout';
 import HomePage from './components/pages/HomePage';
 import JobsPage from './components/pages/JobsPage';
 import NotFoundPage from './components/pages/NotFoundPage';
-import JobPage from './components/pages/JobPage';
+import JobPage, { jobLoader } from './components/pages/JobPage';
 const router = createBrowserRouter(
   createRoutesFromElements(
   <Route path='/' element={<MainLayout />}>
   <Route index element={<HomePage />} />
   <Route path='/jobs' element={<JobsPage />} />
-  <Route path='/jobs/:id' element={<JobPage />} />
+  <Route path='/jobs/:id' element={<JobPage />} loader={jobLoader} />
   <Route path='*' element={<NotFoundPage />} />
   </Route>
   )

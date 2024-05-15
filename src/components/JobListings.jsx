@@ -20,7 +20,7 @@ const fetchJobs = async () => {
 console.log('Error fetching data', error);
   } finally {
     setLoading(false);
-  }
+  } 
 
 };
 fetchJobs();
