@@ -24,7 +24,6 @@ console.log('Error fetching data', error);
 
 };
 fetchJobs();
- // eslint-disable-next-line react-hooks/exhaustive-deps
  }, []);
   return (
     <section className="bg-blue-50 px-4 py-10">
@@ -49,7 +48,7 @@ fetchJobs();
   
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default JobListings
+export default JobListings;
