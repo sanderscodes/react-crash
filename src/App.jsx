@@ -5,6 +5,7 @@ import JobsPage from './components/pages/JobsPage';
 import NotFoundPage from './components/pages/NotFoundPage';
 import JobPage, { jobLoader } from './components/pages/JobPage';
 import AddJobPage from './components/pages/AddJobPage';
+import { JobProvider } from './components/JobContext';
 
 const App = () => {
   const addJob = async (newJob) => {
@@ -17,6 +18,15 @@ const App = () => {
     });
     return;
      };
+
+     const deleteJob= async (id) => {
+      console.log('delete', id);
+      await fetch(`/api/jobs/${id}`, {
+        method: 'DELETE',
+      });
+     };
+
+
     const router = createBrowserRouter(
       createRoutesFromElements(
       <Route path='/' element={<MainLayout />}>
@@ -28,7 +38,11 @@ const App = () => {
       </Route>
       )
     );
-  return <RouterProvider router={router} />;
-};
+    return (
+      <JobProvider value={{ deleteJob }}>
+        <RouterProvider router={router} />
+      </JobProvider>
+    );
+  };
 
 export default App;
