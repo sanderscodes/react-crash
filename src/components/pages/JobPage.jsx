@@ -3,6 +3,7 @@ import { useParams, useLoaderData, useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useJobActions } from '../JobContext'; // Adjust the path as needed
+import { toast } from 'react-toastify';
 
 const JobPage = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const JobPage = () => {
     if (!confirm) return;
     if (typeof deleteJob === 'function') {
       deleteJob(jobId);
+      toast.success('Job deleted successfull');
       navigate('/jobs');
     } else {
       console.error('deleteJob is not a function');
